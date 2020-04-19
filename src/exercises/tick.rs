@@ -1,14 +1,14 @@
 // Exercise 1: Fire projectiles and see how far they go.
-use crate::tuples::{ Tuple, point, vector, normalize };
+use crate::tuples::{ Vector, Point };
 
 pub struct Projectile {
-  position: Tuple,
-  velocity: Tuple,
+  position: Point,
+  velocity: Vector,
 }
 
 pub struct Environment {
-  gravity: Tuple,
-  wind: Tuple,
+  gravity: Vector,
+  wind: Vector,
 }
 
 fn tick(env: &Environment, proj: &Projectile) -> Projectile {
@@ -20,13 +20,13 @@ fn tick(env: &Environment, proj: &Projectile) -> Projectile {
 
 pub fn fire_projectiles() {
   let mut p = Projectile {
-    position: point(0.0, 1.0, 0.0),
-    velocity: normalize(&vector(2.0, 2.0, 0.0))
+    position: Point { x: 0.0, y: 1.0, z: 0.0 },
+    velocity: Vector { x: 1.0, y: 1.0, z: 0.0 }.normalize()
   };
 
   let e = Environment {
-    gravity: vector(0.0, -0.1, 0.0),
-    wind: vector(-0.01, 0.0, 0.0)
+    gravity: Vector { x: 0.0, y: -0.1, z: 0.0 },
+    wind: Vector { x: -0.01, y: 0.0, z: 0.0 }
   };
 
   println!("Starting projectile position: {:?}", p.position);

@@ -4,5 +4,5 @@ mod exercises;
 use exercises::fire_projectiles;
 
 fn main() {
-    fire_projectiles();
+    fire_projectiles()
 }
