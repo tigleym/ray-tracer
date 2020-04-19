@@ -1,11 +1,24 @@
 use std::ops::{Add, Div, Mul, Neg, Sub};
 
-#[derive(Debug, PartialEq)]
+const VECTOR_W: f64 = 0.0;
+const POINT_W: f64 = 1.0;
+
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct Tuple {
-  x: f64,
-  y: f64,
-  z: f64,
-  w: f64,
+  pub x: f64,
+  pub y: f64,
+  pub z: f64,
+  pub w: f64,
+}
+
+impl Tuple {
+  fn create_vector(x: f64, y: f64, z: f64) -> Tuple {
+    Tuple { x, y, z, w: VECTOR_W }
+  }
+
+  fn create_point(x: f64, y: f64, z: f64) -> Tuple {
+     Tuple { x, y, z, w: POINT_W }
+  }
 }
 
 impl Add for Tuple {
@@ -74,11 +87,11 @@ impl Sub for Tuple {
 }
 
 pub fn point(x: f64, y: f64, z: f64) -> Tuple {
-  Tuple { x, y, z, w: 1.0 }
+  Tuple::create_point(x, y, z)
 }
 
 pub fn vector(x: f64, y: f64, z: f64) -> Tuple {
-  Tuple { x, y, z, w: 0.0 }
+  Tuple::create_vector(x, y, z)
 }
 
 pub fn magnitude(v: &Tuple) -> f64 {

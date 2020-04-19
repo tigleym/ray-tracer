@@ -1,5 +1,8 @@
 mod tuples;
+mod exercises;
+
+use exercises::fire_projectiles;
 
 fn main() {
-    println!("Hello, world!");
+    fire_projectiles();
 }
