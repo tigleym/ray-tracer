@@ -142,8 +142,8 @@ fn multiplying_vector_by_fraction() {
 
 #[test]
 fn dividing_vector_by_scalar() {
-  let Vector = Vector { x: 1.0, y: -2.0, z: 3.0 };
-  assert_eq!(Vector / 2.0, Vector { x: 0.5, y: -1.0, z: 1.5 });
+  let v = Vector { x: 1.0, y: -2.0, z: 3.0 };
+  assert_eq!(v / 2.0, Vector { x: 0.5, y: -1.0, z: 1.5 });
 }
 
 #[test]
